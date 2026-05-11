@@ -3,3 +3,28 @@
     <h1>Experience <span class="gradient-text">PasagaTv</span> Anywhere</h1>
   </section>
 </div>
+
+<section class="films-section">
+  <div class="films-grid">
+    @for (film of films; track film.id) {
+    <div class="film-card" style="cursor: pointer;">
+      <div class="poster-container">
+        <img [src]="film.poster_url" [alt]="film.title" class="film-poster" />
+        <div class="rating-badge" [attr.data-rating]="film.rating">{{ film.rating }}</div>
+      </div>
+      <div class="film-content">
+        <h3 class="film-title">{{ film.title }}</h3>
+        <div class="film-meta">
+          <span>{{ film.year }}</span>
+          <span class="dot"></span>
+          <span>{{ film.genre }}</span>
+          <span class="dot"></span>
+          <span>{{ film.duration }} min</span>
+        </div>
+        <p class="film-description">{{ film.description }}</p>
+        <button class="view-btn">View Details</button>
+      </div>
+    </div>
+    }
+  </div>
+</section>
