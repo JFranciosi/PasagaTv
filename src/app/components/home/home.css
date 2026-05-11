@@ -39,7 +39,6 @@
 .cta-button {
   background: var(--accent-gradient);
   color: white;
-  padding: 0.875rem 2rem;
   border-radius: 0.75rem;
   font-weight: 600;
   box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
@@ -53,14 +52,14 @@
 
 /* Films Section Styles */
 .films-section {
-  padding: 2rem 1rem;
+  padding: 0;
+  padding-bottom: 7.4rem;
 }
 
 .films-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 1rem 0;
 }
 
 .film-card {
