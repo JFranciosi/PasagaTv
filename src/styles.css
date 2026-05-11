@@ -4,9 +4,9 @@
   --bg-secondary: #1e293b;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --accent-primary: #8b5cf6;
-  --accent-secondary: #d946ef;
-  --accent-gradient: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+  --accent-primary: #f97316;
+  --accent-secondary: #fbbf24;
+  --accent-gradient: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
   
   /* Glassmorphism */
   --glass-bg: rgba(30, 41, 59, 0.7);
