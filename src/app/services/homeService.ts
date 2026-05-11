@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Film } from '../types/film';
+import { Screening } from '../types/screenings';
 
 @Injectable({
     providedIn: 'root'
@@ -17,5 +18,9 @@ export class HomeService {
 
     async getFilmById(id: number): Promise<Film | null> {
         return await firstValueFrom(this.http.get<Film | null>(this.apiUrl + "/films/" + id));
+    }
+
+    async getFilmScreenings(id: number): Promise<Screening[]> {
+        return await firstValueFrom(this.http.get<Screening[]>(this.apiUrl + "/films/" + id + "/screenings"));
     }
 }
