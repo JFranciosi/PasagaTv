@@ -12,14 +12,17 @@ export class HomeService {
 
     constructor(private http: HttpClient) { }
 
+    // Method to get all films
     async getFilms(): Promise<Film[]> {
         return await firstValueFrom(this.http.get<Film[]>(this.apiUrl + "/films"));
     }
 
+    // Method to get films details by id
     async getFilmById(id: number): Promise<Film | null> {
         return await firstValueFrom(this.http.get<Film | null>(this.apiUrl + "/films/" + id));
     }
 
+    // Method to get film screenings by id
     async getFilmScreenings(id: number): Promise<Screening[]> {
         return await firstValueFrom(this.http.get<Screening[]>(this.apiUrl + "/films/" + id + "/screenings"));
     }
