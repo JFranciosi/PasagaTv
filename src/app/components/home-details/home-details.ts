@@ -4,6 +4,8 @@ import { Film } from '../../types/film';
 import { RouterLink } from '@angular/router';
 import { Screening } from '../../types/screenings';
 import { DatePipe } from '@angular/common';
+import { BookingService } from '../../services/bookingService';
+import { UserProfile } from '../../types/userProfile';
 
 @Component({
   selector: 'app-home-details',
@@ -13,8 +15,19 @@ import { DatePipe } from '@angular/common';
 })
 
 export class HomeDetails {
-
+  private bookingService = inject(BookingService);
   private homeService = inject(HomeService);
+
+  lastBooking = signal<UserProfile | null>(null);
+
+  onBookClick(screeningId: number) {
+    this.bookingService.getBooking(screeningId).then(res => {
+      this.lastBooking.set(res);
+      setTimeout(() => this.lastBooking.set(null), 5000);
+    }).catch(err => {
+      console.error('Errore durante la prenotazione:', err);
+    });
+  }
   id = input.required<string>();
   film = signal<Film | null>(null);
   filmScreenings = signal<Screening[]>([]);
