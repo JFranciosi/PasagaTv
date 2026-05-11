@@ -14,4 +14,8 @@ export class HomeService {
     async getFilms(): Promise<Film[]> {
         return await firstValueFrom(this.http.get<Film[]>(this.apiUrl + "/films"));
     }
+
+    async getFilmById(id: number): Promise<Film | null> {
+        return await firstValueFrom(this.http.get<Film | null>(this.apiUrl + "/films/" + id));
+    }
 }

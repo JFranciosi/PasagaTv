@@ -1,13 +1,13 @@
 <div class="home-container">
   <section class="hero">
-    <h1>Experience <span class="gradient-text">PasagaTv</span> Anywhere</h1>
+    <h1>Experience<span class="gradient-text">PasagaTv</span>Anywhere</h1>
   </section>
 </div>
 
 <section class="films-section">
   <div class="films-grid">
-    @for (film of films; track film.id) {
-    <div class="film-card" style="cursor: pointer;">
+    @for (film of films(); track film.id) {
+    <div class="film-card" style="cursor: pointer;" (click)="navigateToFilmDetail(film.id)">
       <div class="poster-container">
         <img [src]="film.poster_url" [alt]="film.title" class="film-poster" />
         <div class="rating-badge" [attr.data-rating]="film.rating">{{ film.rating }}</div>
@@ -22,7 +22,7 @@
           <span>{{ film.duration }} min</span>
         </div>
         <p class="film-description">{{ film.description }}</p>
-        <button class="view-btn">View Details</button>
+        <button class="view-btn">Visualizza</button>
       </div>
     </div>
     }

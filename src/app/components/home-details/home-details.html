@@ -1,1 +1,23 @@
-<p>home-details works!</p>
+<section>
+    @if(film()) {
+    <div class="poster-section">
+        <img [src]="film()!.poster_url" [alt]="film()!.title" class="detail-poster" />
+    </div>
+    <div class="info-section">
+        <div class="header">
+            <h1 class="title">{{ film()!.title }}</h1>
+            <div class="meta">
+                <span>{{ film()!.year }}</span>
+                <span class="dot"></span>
+                <span>{{ film()!.duration }} min</span>
+                <span class="dot"></span>
+                <span class="badge" [attr.data-rating]="film()!.rating">{{ film()!.rating }}</span>
+            </div>
+        </div>
+    </div>
+    } @else {
+    <div style="text-align: center; padding: 4rem; color: var(--text-secondary);">
+        Caricamento film...
+    </div>
+    }
+</section>

@@ -1,6 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { HomeService } from '../../services/homeService';
 import { Film } from '../../types/film';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,15 @@ import { Film } from '../../types/film';
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
+  router = inject(Router);
+  navigateToFilmDetail(id: number) {
+    this.router.navigate(['/home-details', id]);
+  }
+
   private homeService = inject(HomeService);
-  films: Film[] = [];
+  films = signal<Film[]>([]);
 
   async ngOnInit() {
-    this.films = await this.homeService.getFilms();
+    this.films.set(await this.homeService.getFilms());
   }
 }
