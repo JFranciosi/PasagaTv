@@ -1,13 +1,15 @@
 import { Component, effect, inject, input, signal } from '@angular/core';
 import { HomeService } from '../../services/homeService';
 import { Film } from '../../types/film';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home-details',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './home-details.html',
   styleUrl: './home-details.css',
 })
+
 export class HomeDetails {
 
   private homeService = inject(HomeService);
