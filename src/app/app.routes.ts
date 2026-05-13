@@ -16,6 +16,11 @@ export const routes: Routes = [
         title: 'Home Details'
     },
     {
+        path: 'home-details/:id/screenings',
+        component: HomeDetails,
+        title: 'Film Screenings'
+    },
+    {
         path: 'review',
         component: Review,
         title: 'Review'
