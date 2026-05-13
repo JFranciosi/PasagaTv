@@ -9,3 +9,11 @@ export interface Film {
     year: number;
     rating: "T" | "VM12" | "VM14" | "VM18";
 }
+
+export interface FilmResponse {
+    films: Film[];
+    totalElements: number;
+    totalPages: number;
+    currentPage: number;
+    pageSize: number;
+}
